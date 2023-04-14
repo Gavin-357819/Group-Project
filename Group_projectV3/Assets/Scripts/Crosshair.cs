@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,7 +27,7 @@ public class Crosshair : MonoBehaviour
 
     public void SetPortalPlaced(int portalID, bool isPlaced)
     {
-        if (portalID == 0)
+        if(portalID == 0)
         {
             inPortalImg.gameObject.SetActive(isPlaced);
         }

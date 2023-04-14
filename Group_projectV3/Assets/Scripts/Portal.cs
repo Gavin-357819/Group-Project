@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,7 +37,7 @@ public class Portal : MonoBehaviour
     private void Start()
     {
         outlineRenderer.material.SetColor("_OutlineColour", PortalColour);
-
+        
         gameObject.SetActive(false);
     }
 
@@ -70,7 +70,7 @@ public class Portal : MonoBehaviour
     {
         var obj = other.GetComponent<PortalableObject>();
 
-        if (portalObjects.Contains(obj))
+        if(portalObjects.Contains(obj))
         {
             portalObjects.Remove(obj);
             obj.ExitPortal(wallCollider);
@@ -119,17 +119,17 @@ public class Portal : MonoBehaviour
             -Vector3.up
         };
 
-        for (int i = 0; i < 4; ++i)
+        for(int i = 0; i < 4; ++i)
         {
             RaycastHit hit;
             Vector3 raycastPos = testTransform.TransformPoint(testPoints[i]);
             Vector3 raycastDir = testTransform.TransformDirection(testDirs[i]);
 
-            if (Physics.CheckSphere(raycastPos, 0.05f, placementMask))
+            if(Physics.CheckSphere(raycastPos, 0.05f, placementMask))
             {
                 break;
             }
-            else if (Physics.Raycast(raycastPos, raycastDir, out hit, 2.1f, placementMask))
+            else if(Physics.Raycast(raycastPos, raycastDir, out hit, 2.1f, placementMask))
             {
                 var offset = hit.point - raycastPos;
                 testTransform.Translate(offset, Space.World);
@@ -185,11 +185,11 @@ public class Portal : MonoBehaviour
         // Ensure the portal does not intersect walls.
         var intersections = Physics.OverlapBox(checkPositions[0], checkExtents, testTransform.rotation, placementMask);
 
-        if (intersections.Length > 1)
+        if(intersections.Length > 1)
         {
             return false;
         }
-        else if (intersections.Length == 1)
+        else if(intersections.Length == 1) 
         {
             // We are allowed to intersect the old portal position.
             if (intersections[0] != collider)
@@ -201,9 +201,9 @@ public class Portal : MonoBehaviour
         // Ensure the portal corners overlap a surface.
         bool isOverlapping = true;
 
-        for (int i = 1; i < checkPositions.Length - 1; ++i)
+        for(int i = 1; i < checkPositions.Length - 1; ++i)
         {
-            isOverlapping &= Physics.Linecast(checkPositions[i],
+            isOverlapping &= Physics.Linecast(checkPositions[i], 
                 checkPositions[i] + checkPositions[checkPositions.Length - 1], placementMask);
         }
 

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +23,7 @@ public class PortalPlacement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1"))
         {
             FirePortal(0, transform.position, transform.forward, 250.0f);
         }
@@ -38,14 +38,14 @@ public class PortalPlacement : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(pos, dir, out hit, distance, layerMask);
 
-        if (hit.collider != null)
+        if(hit.collider != null)
         {
             // If we shoot a portal, recursively fire through the portal.
             if (hit.collider.tag == "Portal")
             {
                 var inPortal = hit.collider.GetComponent<Portal>();
 
-                if (inPortal == null)
+                if(inPortal == null)
                 {
                     return;
                 }
@@ -72,8 +72,8 @@ public class PortalPlacement : MonoBehaviour
             // Orient the portal according to camera look direction and surface direction.
             var cameraRotation = cameraMove.TargetRotation;
             var portalRight = cameraRotation * Vector3.right;
-
-            if (Mathf.Abs(portalRight.x) >= Mathf.Abs(portalRight.z))
+            
+            if(Mathf.Abs(portalRight.x) >= Mathf.Abs(portalRight.z))
             {
                 portalRight = (portalRight.x >= 0) ? Vector3.right : -Vector3.right;
             }
@@ -86,11 +86,11 @@ public class PortalPlacement : MonoBehaviour
             var portalUp = -Vector3.Cross(portalRight, portalForward);
 
             var portalRotation = Quaternion.LookRotation(portalForward, portalUp);
-
+            
             // Attempt to place the portal.
             bool wasPlaced = portals.Portals[portalID].PlacePortal(hit.collider, hit.point, portalRotation);
 
-            if (wasPlaced)
+            if(wasPlaced)
             {
                 crosshair.SetPortalPlaced(portalID, true);
             }

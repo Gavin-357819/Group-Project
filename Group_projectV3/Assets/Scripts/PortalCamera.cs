@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -61,7 +61,7 @@ public class PortalCamera : MonoBehaviour
             }
         }
 
-        if (portals[1].Renderer.isVisible)
+        if(portals[1].Renderer.isVisible)
         {
             portalCamera.targetTexture = tempTexture2;
             for (int i = iterations - 1; i >= 0; --i)
@@ -80,7 +80,7 @@ public class PortalCamera : MonoBehaviour
         cameraTransform.position = transform.position;
         cameraTransform.rotation = transform.rotation;
 
-        for (int i = 0; i <= iterationID; ++i)
+        for(int i = 0; i <= iterationID; ++i)
         {
             // Position the camera behind the other portal.
             Vector3 relativePos = inTransform.InverseTransformPoint(cameraTransform.position);

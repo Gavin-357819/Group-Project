@@ -115,7 +115,17 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
-		}
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+				MoveSpeed = 1.0f;
+				SprintSpeed = 2.0f;
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+				MoveSpeed = 6.0f;
+				SprintSpeed = 10.0f;
+            }
+        }
 
 		private void LateUpdate()
 		{

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Group_projectV3/Assets/Scripts/MainMenu.cs.meta
+guid: cd6b33dce2114514c8b0bcecf62f3408
+========
+guid: 42c732cafa87f2d4bb5ca36fd41c6fd7
+>>>>>>>> 17b6dfb4aa8f8b24260ce46ff4e4f2fc968fdcbe:Group_projectV3/Assets/Scripts/BaseInput.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
